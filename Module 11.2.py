@@ -57,6 +57,7 @@ def introspection_info(obj):
     print(f'Пространство имен: {dir(obj)}')
     print(f'Атрибут: {getattr(obj, 'set_color')}')
     print(f'Наличие атрибута: {hasattr(obj, 'sides_count')}')
+    print(f'Модуль {obj.__name__}')
 
 
 need_info = introspection_info(Figure)
