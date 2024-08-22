@@ -1,7 +1,7 @@
 class Figure:
     sides_count = 0
 
-    def __init__(self, color, sides,  filled=False):
+    def __init__(self, color, sides, filled=False):
         if self.__is_valid_sides(*sides):
             if isinstance(self, Cube):
                 self.__sides = list(sides) * self.sides_count
@@ -60,5 +60,5 @@ def introspection_info(obj):
     print(f'Модуль {obj.__name__}')
 
 
-need_info = introspection_info(Figure)
-print(need_info)
+introspection_info(Figure)
+
