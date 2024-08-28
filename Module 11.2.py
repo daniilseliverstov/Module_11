@@ -53,12 +53,14 @@ class Cube(Figure):
 
 
 def introspection_info(obj):
-    print(f'Тип Объекта: {type(obj)}')
-    print(f'Пространство имен: {dir(obj)}')
-    print(f'Атрибут: {getattr(obj, 'set_color')}')
-    print(f'Наличие атрибута: {hasattr(obj, 'sides_count')}')
-    print(f'Модуль {obj.__name__}')
+    dictus = {
+        'Тип Объекта': type(obj),
+        'Пространство имен': dir(obj),
+        'Метод': getattr(obj, 'set_color'),
+        'Наличие атрибута': hasattr(obj, 'sides_count'),
+        'Модуль': obj.__name__}
+    return dictus
 
 
-introspection_info(Figure)
-
+result = introspection_info(Figure)
+print(result)
