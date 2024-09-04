@@ -53,13 +53,20 @@ class Cube(Figure):
 
 
 def introspection_info(obj):
-    dictus = {
-        'Тип Объекта': type(obj),
-        'Пространство имен': dir(obj),
-        'Метод': getattr(obj, 'set_color'),
-        'Наличие атрибута': hasattr(obj, 'sides_count'),
-        'Модуль': obj.__name__}
-    return dictus
+    attributes = []
+    methods = []
+    for attr in dir(obj):
+        if callable(getattr(obj, attr)):
+            methods.append(attr)
+        else:
+            attributes.append(attr)
+    return {
+        'type': type(obj).__name__,
+        'attributes': attributes,
+        'methods': methods,
+        'module': __name__,
+        'id': id(obj),
+    }
 
 
 result = introspection_info(Figure)
